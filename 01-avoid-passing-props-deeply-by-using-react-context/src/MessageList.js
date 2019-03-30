@@ -1,9 +1,9 @@
-import React from 'react';
-import UserContext from './UserContext';
+import React from "react";
+import UserContext from "./UserContext";
 
 const MessageList = () => (
   <UserContext.Consumer>
-    {user => (
+    {({ user }) => (
       <div className="MessageList">
         <div className="no-messages">
           Your mailbox is empty, {user.firstName}! 🎉

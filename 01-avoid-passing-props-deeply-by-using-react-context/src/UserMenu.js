@@ -1,5 +1,5 @@
-import React from 'react';
-import UserContext from './UserContext';
+import React from "react";
+import UserContext from "./UserContext";
 
 class UserMenu extends React.Component {
   state = {
@@ -9,11 +9,11 @@ class UserMenu extends React.Component {
   avatarRef = React.createRef();
 
   componentDidMount() {
-    document.addEventListener('click', this.hideMenu);
+    document.addEventListener("click", this.hideMenu);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.hideMenu);
+    document.removeEventListener("click", this.hideMenu);
   }
 
   hideMenu = e => {
@@ -33,7 +33,7 @@ class UserMenu extends React.Component {
   render() {
     return (
       <UserContext.Consumer>
-        {user => (
+        {({ user, onLogout }) => (
           <div className="UserMenu">
             <img
               className="UserAvatar"
@@ -44,7 +44,7 @@ class UserMenu extends React.Component {
             />
             {this.state.menuVisible && (
               <ul>
-                <li onClick={this.props.onLogout}>Logout</li>
+                <li onClick={onLogout}>Logout</li>
               </ul>
             )}
           </div>
